@@ -1,0 +1,156 @@
+:root {
+    --brightOrange: hsl(31, 77%, 52%);
+    --darkCyan: hsl(184, 100%, 22%);
+    --veryDarkCyan: hsl(179, 100%, 13%);
+    --transparentWhite: hsla(0, 0%, 100%, 0.75);
+    --veryLightGray: hsl(0, 0%, 95%);
+    --fontSize: 1.5rem;
+    --mainDistance: 3rem;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font: var(--fontSize) 'Lexend Deca', sans-serif;
+    color: var(--veryLightGray);
+}
+
+
+.cards {
+    padding: 7rem 0;
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.card--yellow {
+    background-color: var(--brightOrange);
+}
+
+.card--blue {
+    background-color: var(--darkCyan);
+}
+
+.card--green {
+    background-color: var(--veryDarkCyan);
+}
+
+.card {
+    padding: calc(var(--mainDistance) * 1.75);
+}
+
+.card--first {
+    border-radius: 1rem 1rem 0 0;
+}
+
+.card--last {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.card__car,
+.card__heading {
+    margin-bottom: var(--mainDistance);
+}
+
+.card__heading {
+    font-size: 3em;
+    text-transform: uppercase;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.card__text {
+    line-height: 175%;
+    color: var(--transparentWhite);
+}
+
+.card__button {
+    padding: 1.5rem 3rem;
+    margin-top: calc(var(--mainDistance)/2);
+    border: 2px solid transparent;
+    border-radius: 5rem;
+    background-color: var(--veryLightGray);
+    font-family: inherit;
+    cursor: pointer;
+    transition: border .3s, color .3s;
+}
+
+.card__button:hover {
+    background-color: transparent;
+    border: 2px solid;
+    color: inherit;
+}
+
+.card__button--yellow {
+    color: var(--brightOrange);
+}
+
+.card__button--blue {
+    color: var(--darkCyan);
+}
+
+.card__button--green {
+    color: var(--veryDarkCyan);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    color: #000;
+}
+
+.attribution a {
+    color: #000;
+}
+
+@media (min-width: 992px) {
+    body {
+        position: relative;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .card--first {
+        border-radius: 1rem 0 0 1rem;
+    }
+
+    .card--last {
+        border-radius: 0 1rem 1rem 0;
+    }
+
+    .card__button {
+        margin-top: 8rem;
+    }
+
+    .attribution {
+        position: absolute;
+        top: 98vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 1200px) {
+    .cards {
+        width: 75%;
+    }
+}
